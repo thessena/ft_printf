@@ -6,7 +6,7 @@
 /*   By: thessena <thessena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 09:32:32 by thessena          #+#    #+#             */
-/*   Updated: 2024/11/01 10:57:00 by thessena         ###   ########.fr       */
+/*   Updated: 2024/11/01 11:14:29 by thessena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,13 @@ int	ft_putnbr(int n)
 	return (1);
 }
 
+int	ft_putstr(char *s)
+{
+	while (*s)
+		write (1, s++, 1);
+	return (1);
+}
+
 int	check_type(char type, va_list args)
 {
 	int	len;
@@ -45,6 +52,8 @@ int	check_type(char type, va_list args)
 		len += ft_putchar(va_arg(args, int));
 	else if (type == 'i')
 		len += ft_putnbr(va_arg(args, int));
+	else if (type == 's')
+		len += ft_putstr(va_arg(args, char *));
 	return (len);
 }
 
