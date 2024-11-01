@@ -6,7 +6,7 @@
 /*   By: thessena <thessena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 09:28:24 by thessena          #+#    #+#             */
-/*   Updated: 2024/10/31 10:14:15 by thessena         ###   ########.fr       */
+/*   Updated: 2024/11/01 11:20:09 by thessena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,10 @@
 # include <stdlib.h>
 # include <stdarg.h>
 
-int		ft_printf(const char *text, ...);
+int	ft_printf(const char *text, ...);
+int	check_type(char type, va_list args);
+int	ft_putchar(char c);
+int	ft_putnbr(int n);
+int	ft_putstr(char *s);
+
 #endif

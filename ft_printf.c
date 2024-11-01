@@ -6,7 +6,7 @@
 /*   By: thessena <thessena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 09:32:32 by thessena          #+#    #+#             */
-/*   Updated: 2024/11/01 11:14:29 by thessena         ###   ########.fr       */
+/*   Updated: 2024/11/01 11:27:15 by thessena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,19 @@ int	ft_putchar(char c)
 {
 	write(1, &c, 1);
 	return (1);
+}
+
+int	ft_putstr(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		write (1, &s[i], 1);
+		i++;
+	}
+	return (i);
 }
 
 int	ft_putnbr(int n)
@@ -36,13 +49,6 @@ int	ft_putnbr(int n)
 	return (1);
 }
 
-int	ft_putstr(char *s)
-{
-	while (*s)
-		write (1, s++, 1);
-	return (1);
-}
-
 int	check_type(char type, va_list args)
 {
 	int	len;
@@ -50,10 +56,10 @@ int	check_type(char type, va_list args)
 	len = 0;
 	if (type == 'c')
 		len += ft_putchar(va_arg(args, int));
-	else if (type == 'i')
-		len += ft_putnbr(va_arg(args, int));
 	else if (type == 's')
 		len += ft_putstr(va_arg(args, char *));
+	else if (type == 'i')
+		len += ft_putnbr(va_arg(args, int));
 	return (len);
 }
 
