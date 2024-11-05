@@ -6,7 +6,7 @@
 #    By: thessena <thessena@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/31 09:23:28 by thessena          #+#    #+#              #
-#    Updated: 2024/11/05 13:58:35 by thessena         ###   ########.fr        #
+#    Updated: 2024/11/05 14:58:23 by thessena         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,10 @@ ft_putchar.c \
 ft_putstr.c \
 ft_putnbr.c \
 ft_putnbr_unsigned.c \
-ft_puthex.c \
-ft_putperc.c \
+ft_puthex_lower.c \
+ft_puthex_upper.c \
+ft_putperc.c
+
 
 OBJECTS = $(SOURCES:.c=.o)
 

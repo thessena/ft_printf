@@ -6,7 +6,7 @@
 /*   By: thessena <thessena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 09:32:32 by thessena          #+#    #+#             */
-/*   Updated: 2024/11/05 13:59:04 by thessena         ###   ########.fr       */
+/*   Updated: 2024/11/05 14:58:11 by thessena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ int	check_type(char type, va_list args)
 	else if (type == 'u')
 		len += ft_putnbr_unsigned(va_arg(args, unsigned int));
 	else if (type == 'x')
-		len += ft_puthex(va_arg(args, unsigned int));
+		len += ft_puthex_lower(va_arg(args, unsigned int));
+	else if (type == 'X')
+		len += ft_puthex_upper(va_arg(args, unsigned int));
 	else if (type == '%')
 		len += ft_putperc();
 	return (len);
