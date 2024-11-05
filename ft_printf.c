@@ -6,7 +6,7 @@
 /*   By: thessena <thessena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 09:32:32 by thessena          #+#    #+#             */
-/*   Updated: 2024/11/05 14:58:11 by thessena         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:15:42 by thessena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	check_type(char type, va_list args)
 		len += ft_putchar(va_arg(args, int));
 	else if (type == 's')
 		len += ft_putstr(va_arg(args, char *));
+	else if (type == 'p')
+		len += ft_putptr(va_arg(args, void *));
 	else if (type == 'i' || type == 'd')
 		len += ft_putnbr(va_arg(args, int));
 	else if (type == 'u')

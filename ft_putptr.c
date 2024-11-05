@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex_lower.c                                  :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thessena <thessena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 13:46:00 by thessena          #+#    #+#             */
-/*   Updated: 2024/11/05 15:04:29 by thessena         ###   ########.fr       */
+/*   Created: 2024/11/05 13:47:19 by thessena          #+#    #+#             */
+/*   Updated: 2024/11/05 15:09:01 by thessena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_puthex_lower(unsigned long n)
+int	ft_putptr(void *ptr)
 {
-	int		count;
-	char	*base;
+	int	count;
 
 	count = 0;
-	base = "0123456789abcdef";
-	if (n >= 16)
-		count += ft_puthex_lower(n / 16);
-	count += ft_putchar(base[n % 16]);
+	count += ft_putstr("0x");
+	count += ft_puthex_lower((unsigned long)ptr);
 	return (count);
 }

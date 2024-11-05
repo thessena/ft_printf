@@ -6,13 +6,13 @@
 /*   By: thessena <thessena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 14:44:37 by thessena          #+#    #+#             */
-/*   Updated: 2024/11/05 14:59:55 by thessena         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:04:35 by thessena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_puthex_upper(unsigned int n)
+int	ft_puthex_upper(unsigned long n)
 {
 	int		count;
 	char	*base;
