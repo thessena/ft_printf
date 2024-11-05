@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thessena <thessena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 09:28:24 by thessena          #+#    #+#             */
-/*   Updated: 2024/11/05 13:55:55 by thessena         ###   ########.fr       */
+/*   Created: 2024/11/05 13:46:00 by thessena          #+#    #+#             */
+/*   Updated: 2024/11/05 13:55:43 by thessena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
+int	ft_puthex(unsigned int n)
+{
+	int		count;
+	char	*base;
 
-int	ft_printf(const char *text, ...);
-int	check_type(char type, va_list args);
-int	ft_putchar(char c);
-int	ft_putstr(char *s);
-int	ft_putnbr(int n);
-int	ft_putnbr_unsigned(unsigned int n);
-int	ft_puthex(unsigned int n);
-int	ft_putperc(void);
-
-#endif
+	count = 0;
+	base = "0123456789abcdef";
+	if (n >= 16)
+		count += ft_puthex(n / 16);
+	count += ft_putchar(base[n % 16]);
+	return (count);
+}
