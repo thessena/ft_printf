@@ -6,28 +6,31 @@
 /*   By: thessena <thessena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:09:27 by thessena          #+#    #+#             */
-/*   Updated: 2024/11/05 17:42:25 by thessena         ###   ########.fr       */
+/*   Updated: 2024/11/05 17:51:26 by thessena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-// int	ft_putnbr_recursive(int n)
-// {
-// 	if (n >= 10)
-// 	{
-// 		if (ft_putnbr_recursive(n / 10) == -1)
-// 			return (-1);
-// 	}
-// 	if (ft_putchar((n % 10) + '0') == -1)
-// 		return (-1);
-// 	return (i + 1);
-// }
+int	ft_putnbr_recursive(int n)
+{
+	int	i;
+
+	i = 0;
+	if (n >= 10)
+	{
+		i += ft_putnbr_recursive(n / 10);
+		if (i == -1)
+			return (-1);
+	}
+	if (ft_putchar((n % 10) + '0') == -1)
+		return (-1);
+	return (i + 1);
+}
 
 int	ft_putnbr(int n)
 {
 	int	i;
-	int	count;
 
 	i = 0;
 	if (n == -2147483648)
@@ -50,14 +53,6 @@ int	ft_putnbr(int n)
 			return (-1);
 		return (i + 1);
 	}
-	if (n >= 10)
-	{
-		count = ft_putnbr(n / 10);
-		if (count == -1)
-			return (-1);
-		i += count;
-	}
-	if (ft_putchar((n % 10) + '0') == -1)
-		return (-1);
-	return (i + 1);
+	i += ft_putnbr_recursive(n);
+	return (i);
 }
