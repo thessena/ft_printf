@@ -6,7 +6,7 @@
 /*   By: thessena <thessena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:11:03 by thessena          #+#    #+#             */
-/*   Updated: 2024/11/05 15:20:31 by thessena         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:25:26 by thessena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_putstr(char *s)
 	int	i;
 
 	if (!s)
-		return (ft_putstr("(null)"));
+		return (write(1, "(null)", 6));
 	i = 0;
 	while (s[i])
 	{
