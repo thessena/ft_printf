@@ -6,7 +6,7 @@
 /*   By: thessena <thessena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 09:32:32 by thessena          #+#    #+#             */
-/*   Updated: 2024/11/05 16:26:21 by thessena         ###   ########.fr       */
+/*   Updated: 2024/11/05 16:46:58 by thessena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int	check_type(char type, va_list args)
 		len += ft_puthex_upper(va_arg(args, unsigned int));
 	else if (type == '%')
 		len += ft_putperc();
+	if (len == -1)
+		return (-1);
 	return (len);
 }
 
