@@ -6,19 +6,19 @@
 /*   By: thessena <thessena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 09:32:32 by thessena          #+#    #+#             */
-/*   Updated: 2024/11/01 11:50:51 by thessena         ###   ########.fr       */
+/*   Updated: 2024/11/05 12:59:51 by thessena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printchar(char c)
+int	ft_putchar(char c)
 {
 	write(1, &c, 1);
 	return (1);
 }
 
-int	ft_printstr(char *s)
+int	ft_putstr(char *s)
 {
 	int	i;
 
@@ -31,7 +31,7 @@ int	ft_printstr(char *s)
 	return (i);
 }
 
-int	ft_printnbr(int n)
+int	ft_putnbr(int n)
 {
 	int	i;
 
@@ -44,16 +44,16 @@ int	ft_printnbr(int n)
 	}
 	if (n < 0)
 	{
-		i += ft_printchar('-');
+		i += ft_putchar('-');
 		n = -n;
 	}
 	if (n >= 10)
-		i += ft_printnbr(n / 10);
-	i += ft_printchar((n %= 10) + 48);
+		i += ft_putnbr(n / 10);
+	i += ft_putchar((n %= 10) + 48);
 	return (i);
 }
 
-int	ft_printperc(void)
+int	ft_putperc(void)
 {
 	write(1, "%", 1);
 	return (1);
@@ -65,13 +65,13 @@ int	check_type(char type, va_list args)
 
 	len = 0;
 	if (type == 'c')
-		len += ft_printchar(va_arg(args, int));
+		len += ft_putchar(va_arg(args, int));
 	else if (type == 's')
-		len += ft_printstr(va_arg(args, char *));
-	else if (type == 'i')
-		len += ft_printnbr(va_arg(args, int));
+		len += ft_putstr(va_arg(args, char *));
+	else if (type == 'i' || type == 'd')
+		len += ft_putnbr(va_arg(args, int));
 	else if (type == '%')
-		len += ft_printperc();
+		len += ft_putperc();
 	return (len);
 }
 
@@ -90,7 +90,7 @@ int	ft_printf(const char *text, ...)
 			len += check_type(*text, args);
 		}
 		else
-			len += ft_printchar(*text);
+			len += ft_putchar(*text);
 		text++;
 	}
 	va_end(args);
