@@ -6,7 +6,7 @@
 /*   By: thessena <thessena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 09:28:24 by thessena          #+#    #+#             */
-/*   Updated: 2024/11/05 13:14:45 by thessena         ###   ########.fr       */
+/*   Updated: 2024/11/05 13:42:02 by thessena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	check_type(char type, va_list args);
 int	ft_putchar(char c);
 int	ft_putstr(char *s);
 int	ft_putnbr(int n);
+int	ft_putnbr_unsigned(unsigned int n);
 int	ft_putperc(void);
 
 #endif
