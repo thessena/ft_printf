@@ -6,58 +6,11 @@
 /*   By: thessena <thessena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 09:32:32 by thessena          #+#    #+#             */
-/*   Updated: 2024/11/05 12:59:51 by thessena         ###   ########.fr       */
+/*   Updated: 2024/11/05 13:12:01 by thessena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	ft_putchar(char c)
-{
-	write(1, &c, 1);
-	return (1);
-}
-
-int	ft_putstr(char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-	{
-		write (1, &s[i], 1);
-		i++;
-	}
-	return (i);
-}
-
-int	ft_putnbr(int n)
-{
-	int	i;
-
-	i = 0;
-	if (n == -2147483648)
-	{
-		write(1, "-2", 2);
-		n = 147483648;
-		i += 2;
-	}
-	if (n < 0)
-	{
-		i += ft_putchar('-');
-		n = -n;
-	}
-	if (n >= 10)
-		i += ft_putnbr(n / 10);
-	i += ft_putchar((n %= 10) + 48);
-	return (i);
-}
-
-int	ft_putperc(void)
-{
-	write(1, "%", 1);
-	return (1);
-}
 
 int	check_type(char type, va_list args)
 {

@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thessena <thessena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 09:28:24 by thessena          #+#    #+#             */
-/*   Updated: 2024/11/05 13:14:45 by thessena         ###   ########.fr       */
+/*   Created: 2024/11/05 13:09:27 by thessena          #+#    #+#             */
+/*   Updated: 2024/11/05 13:09:56 by thessena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
+int	ft_putnbr(int n)
+{
+	int	i;
 
-int	ft_printf(const char *text, ...);
-int	check_type(char type, va_list args);
-int	ft_putchar(char c);
-int	ft_putstr(char *s);
-int	ft_putnbr(int n);
-int	ft_putperc(void);
-
-#endif
+	i = 0;
+	if (n == -2147483648)
+	{
+		write(1, "-2", 2);
+		n = 147483648;
+		i += 2;
+	}
+	if (n < 0)
+	{
+		i += ft_putchar('-');
+		n = -n;
+	}
+	if (n >= 10)
+		i += ft_putnbr(n / 10);
+	i += ft_putchar((n %= 10) + 48);
+	return (i);
+}
